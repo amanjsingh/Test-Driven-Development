@@ -273,6 +273,11 @@ public class Main {
     }
 
     private static void printAllUsers() {
+        /*
+        “HashMap entryset() method in Java,” GeeksforGeeks, 26-Nov-2018. [Online].
+        Available: https://www.geeksforgeeks.org/hashmap-entryset-method-in-java/.
+        [Accessed: 23-Sep-2022].
+        */
         Map<String, User> userMap = userRepository.fetchAllUsers();
         for (Map.Entry<String, User> entry : userMap.entrySet()) {
             System.out.println(entry.getValue());
