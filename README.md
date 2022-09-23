@@ -10,6 +10,7 @@
 <hr>
 
 <h4>Banking Service</h4>
+
 1. Register for banking service
 2. View bank account and status
 3. Deposit Money
