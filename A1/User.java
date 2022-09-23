@@ -91,7 +91,7 @@ public class User {
                 ", userName='" + userName + '\'' +
                 ", level=" + level + '\'' +
                 ", acctNum=" + account.getNumber() + '\'' +
-                ", accctBal=" + account.getBalance() + '\'' +
+                ", acctBal=" + account.getBalance() + '\'' +
                 ", Telecom Service=" + hasBill() + '\'' +
                 '}';
     }
