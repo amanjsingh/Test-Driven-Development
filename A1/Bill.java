@@ -12,7 +12,7 @@ public class Bill {
         this.currentPlan = currentPlan;
         this.isReferred = isReferred;
         this.joiningYear = LocalDate.now().getYear();
-        this.pendingAmt = getPendingAmt();
+        setPendingAmt();
         this.lastPaidYear = LocalDate.now().getYear();
     }
 
@@ -36,8 +36,9 @@ public class Bill {
     }
 
     public double getPendingAmt() {
-        setPendingAmt();
-        return pendingAmt;
+        int currentYear = LocalDate.now().getYear();
+        double currentBill = this.pendingAmt + (currentYear-this.lastPaidYear)*this.currentPlan;
+        return currentBill;
     }
 
     public void setLastPaidYear() {
