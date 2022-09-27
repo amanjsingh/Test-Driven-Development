@@ -2,7 +2,7 @@
 
 <h3>Instructions</h3>
 <ul>
-    <li>A1> javac Main.java</li>
+    <li>A1> javac *.java</li>
     <li>A1> java Main</li>
     <li>A1> java Main test</li>
 </ul>
@@ -13,14 +13,14 @@
 
 1. Register for banking service
 2. View bank account and status
-3. Deposit Money
+3. Deposit money
 4. Withdraw money
 
 <hr>
 
 <h4>Telecom Service</h4>
 <ul>
-    <li> Only Banking customers can avail Telecom service
+    <li style="color: firebrick"> Only Banking customers are eligible for Telecom service
 </ul>
 
 5. Register for telecom service
