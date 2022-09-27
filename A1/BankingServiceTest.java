@@ -12,10 +12,10 @@ public class BankingServiceTest {
         User user = new User("Virat Kohli", "RunMachine", "Century71", new Account("543216789", 90000));
         try {
             banking.setupNewUser(user, repository);
-            System.out.println("User added with already existing username - Test FAILURE\n");
+            System.out.println("\nUser added with already existing username - Test FAILURE\n");
         } catch (UserAlreadyExistsException e) {
             System.out.println(e.getMessage());
-            System.out.println("New user profile not created - Test PASSED!\n");
+            System.out.println("New user profile for existing user not created - Test PASSED!\n");
         } catch (InvalidNameException | InvalidPasswordException | InvalidUserNameException e) {
             System.out.println(e.getMessage());
             System.out.println("Something went wrong @(Add user with existing username) - Test FAILURE\n");
@@ -37,9 +37,39 @@ public class BankingServiceTest {
         }
     }
 
+    public void setupNewUserWithInvalidNameTest() {
+
+        User user = new User("AB", "emptyName", "Testing123", new Account("123654987", 3000));
+        try {
+            banking.setupNewUser(user, repository);
+            System.out.println("User added with invalid name - Test FAILURE\n");
+        } catch (InvalidNameException e) {
+            System.out.println(e.getMessage());
+            System.out.println("New User with invalid name - Test PASSED!\n");
+        } catch (InvalidPasswordException | InvalidUserNameException | UserAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Something went wrong @(Invalid Name Test) - Test FAILURE\n");
+        }
+    }
+
+    public void setupNewUserWithEmptyUsernameTest() {
+
+        User user = new User("Test Name", "", "Testing123", new Account("123654987", 3000));
+        try {
+            banking.setupNewUser(user, repository);
+            System.out.println("User added with empty username - Test FAILURE\n");
+        } catch (InvalidUserNameException e) {
+            System.out.println(e.getMessage());
+            System.out.println("New User with empty username - Test PASSED!\n");
+        } catch (InvalidPasswordException | InvalidNameException | UserAlreadyExistsException e) {
+            System.out.println(e.getMessage());
+            System.out.println("Something went wrong @(Empty UserName Test) - Test FAILURE\n");
+        }
+    }
+
     public void setupNewUserWithInvalidUsernameTest() {
 
-        User user = new User("Test Name", "abc", "Testing123", new Account("123654987", 3000));
+        User user = new User("Test Name", "am", "Testing123", new Account("123654987", 3000));
         try {
             banking.setupNewUser(user, repository);
             System.out.println("User added with invalid username - Test FAILURE\n");
@@ -69,7 +99,7 @@ public class BankingServiceTest {
 
     public void setupNewUserTest() {
 
-        User user = new User("Test Name", "test123", "Testing123", new Account("123654987", 3000));
+        User user = new User("Test Name", "test123456", "Testing123", new Account("123654987", 3000));
         try {
             banking.setupNewUser(user, repository);
             System.out.println("New User - Test PASSED!\n");
@@ -120,8 +150,8 @@ public class BankingServiceTest {
             banking.deposit(user, -10);
             System.out.println("Deposit - Test FAILURE\n");
         } catch (InvalidAmountException e) {
-            System.out.println("Deposit negative amount - Test PASSED\n");
-            System.out.println(e.getMessage() + "\n");
+            System.out.println(e.getMessage());
+            System.out.println("Deposit negative amount - Test PASSED!\n");
         } catch (UserDoesNotExistException e) {
             System.out.println("Something went wrong @(depositNegativeAmountTest) - Test FAILURE\n");
         }
@@ -150,10 +180,10 @@ public class BankingServiceTest {
             double startingBalance = account.getBalance();
 
             banking.withdraw(user, -10);
-            System.out.println("WIthdraw negative amount - Test FAILURE\n");
+            System.out.println("Withdraw negative amount - Test FAILURE\n");
         } catch (InvalidAmountException e) {
+            System.out.println(e.getMessage());
             System.out.println("Withdraw negative amount - Test PASSED!\n");
-            System.out.println(e.getMessage() + "\n");
         } catch (UserDoesNotExistException | InsufficientBalanceException e) {
             System.out.println("Something went wrong @(withdrawNegativeAmountTest) - Test FAILURE\n");
         }

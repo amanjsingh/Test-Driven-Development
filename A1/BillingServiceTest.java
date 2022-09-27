@@ -72,7 +72,7 @@ public class BillingServiceTest {
     public void payBillTest(){
         try {
             bankingService = new BankingServiceImpl();
-            User user = userRepository.fetchUser("Batman");
+            User user = userRepository.fetchUser("RunMachine");
             double accountBalanceBefore = user.getAccount().getBalance();
             double pendingAmountBefore = user.getBill().getPendingAmt();
 
@@ -81,7 +81,7 @@ public class BillingServiceTest {
             double accountBalanceAfter = user.getAccount().getBalance();
             double pendingAmountAfter = user.getBill().getPendingAmt();
 
-            if(accountBalanceBefore-accountBalanceAfter == pendingAmountBefore && pendingAmountAfter==0){
+            if(accountBalanceBefore-accountBalanceAfter == pendingAmountBefore){
                 System.out.println("Pay bill - Test PASSED!\n");
             }
 

@@ -6,6 +6,8 @@ public class MainTest {
 //      User Validation
         bankingTest.setupAlreadyExistingUserTest();
         bankingTest.setupNewUserWithEmptyNameTest();
+        bankingTest.setupNewUserWithInvalidNameTest();
+        bankingTest.setupNewUserWithEmptyUsernameTest();
         bankingTest.setupNewUserWithInvalidUsernameTest();
         bankingTest.setupNewUserWithInvalidPasswordTest();
 
