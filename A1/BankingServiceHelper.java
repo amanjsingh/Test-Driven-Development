@@ -3,6 +3,9 @@ import java.util.regex.Pattern;
 
 public class BankingServiceHelper {
     public void userNameValidation(String userName) throws InvalidUserNameException{
+        /*
+        Java regular expressions. [Online]. Available: https://www.w3schools.com/java/java_regex.asp. [Accessed: 27-Sep-2022].
+        */
         Pattern userNameRegex = Pattern.compile("^[A-Za-z][A-Za-z0-9]{4,9}$");
         Matcher userNameValidator = userNameRegex.matcher(userName);
         boolean isUserNameValid = userNameValidator.find();
