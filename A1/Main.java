@@ -24,7 +24,7 @@ public class Main {
         printAllUsers();
 
         while (true) {
-            System.out.println("\nBanking Operations");
+            System.out.println("\n\nBanking Operations");
             System.out.println("1. Register for banking service                  2. View bank account");
             System.out.println("3. Deposit money                                 4. Withdraw money\n");
 
@@ -110,7 +110,7 @@ public class Main {
         try {
             user = userRepository.fetchUser(username);
             System.out.println("Select annual plan : 600 | 1200 | 1800");
-            double currentPlan = 600;
+            double currentPlan = scanner.nextDouble();
             scanner.nextLine();
             System.out.println("Do you have a referral? (Y/N)");
             String referral = scanner.nextLine();
@@ -195,7 +195,7 @@ public class Main {
         Double balance = 0.0;
 
         while (true) {
-            System.out.print("Name(Cannot be empty): ");
+            System.out.print("Name(Min length 3): ");
             name = scanner.nextLine();
             try {
                 helper.nameValidation(name);
@@ -207,7 +207,7 @@ public class Main {
         }
 
         while (true) {
-            System.out.print("Username(Minimum 5 characters): ");
+            System.out.print("Username(5-10 characters): ");
             username = scanner.nextLine();
             try {
                 helper.userNameValidation(username);
